@@ -66,10 +66,15 @@ public class Main {
         newMessage.setMessage("Hello Io");
 //
         em.persist(newMessage); // 1. Persist works with NEW objects/records
-        em.merge(newMessage);   // 2. Merge works with existing records
+        em.merge(newMessage);   // 2. Merge works with all records
         em.remove(newMessage);
 
         em.getTransaction().begin();
+        // Transaction: is een bundel van database actions die als 1 geheel uitgevoerd worden.
+        // Erik >> BankRekening: 1000
+        // Emrah>> BankRekening: 1000
+        // UPDATE emrahRekening SET balance = 1050
+        // UPDATE erikRekening SET balance = 950
         em.getTransaction().commit();
 
         // 1. Maak een nieuw order. En save naar de database.
