@@ -1,12 +1,14 @@
 package be.infernalwhale.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Message {
     @Id
-    private int id;
+    @GeneratedValue
+    private int id;    // auto_increment
     private String message;
 
     public int getId() {
