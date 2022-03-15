@@ -5,6 +5,7 @@ import be.infernalwhale.model.Message;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Collection;
 
 public class Main {
     public static void main(String[] args) {
@@ -77,8 +78,22 @@ public class Main {
         // UPDATE erikRekening SET balance = 950
         em.getTransaction().commit();
 
-        // 1. Maak een nieuw order. En save naar de database.
-        // 2. Update het eerste order met bijvoorbeeld een nieuwe klantnaam/adres
-        // 3. Check out em.remove(entity)
+        // em.persist(entity) // em.merge(entity)
+        // entityA >> em.persist(entityA) >>    PersistenceContext {  entityA   }
+        // entityB >> em.merge(entityB)   >> 1. PersistenceContext { entityB.id << read record from db }
+        //                                   2. Copy the state of entityB to the object read from db
+        //                                   3. Returns the object from the PersistenceContext
+        Collection<Object> persistenceContext;
+        // em.remove(entity)
+        Collection<Object> removalContext;
+
+        // Constructor Requirements
+        // JPA requires a no-argument constructor!!!! (be it the default or a written no-arg)
+        // Field Access en Property Access
+        // Field Access >> JPA uses the properties to initialise property values
+        // Property Access >> JPA uses getters and setters to initialise property values
+
+        // Entity Associations (Entity Relations)
+
     }
 }

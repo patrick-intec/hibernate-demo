@@ -3,7 +3,6 @@ package be.infernalwhale.data;
 import be.infernalwhale.model.Order;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 public class OrderRepository {

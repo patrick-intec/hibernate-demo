@@ -4,12 +4,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "orders_table")
+@Table(name = "order_table")
 public class Order {
     @Id
     @GeneratedValue
     private Integer id;
     private String order_number;
+    @Transient
     private String order_client;
     private String order_delivery_address;
     private int order_delivery_postalcode;
@@ -19,6 +20,16 @@ public class Order {
     private Date order_date;
     @Column(name = "rank_column")
     private String rank;
+
+    public Order() {
+
+    }
+
+    public Order(String s1, String s2, String s3) {
+        this.order_number = s1;
+        this.order_client = s2;
+        this.order_delivery_address = s3;
+    }
 
     public int getId() {
         return id;
