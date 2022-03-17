@@ -3,8 +3,8 @@ package be.infernalwhale.model;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "order_table")
+//@Entity
+//@Table(name = "order_table")
 public class Order {
     @Id
     @GeneratedValue

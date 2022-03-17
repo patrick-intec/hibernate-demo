@@ -52,7 +52,7 @@ public class Message {
     //           We can also have 2 FK's...              >> BiDirectional Relationship
 
     // Class Message with Property of type User  (OneToOne / ManyToOne)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User user;
 
     // Constructor Requirements - Entity must have a no-argument constructor

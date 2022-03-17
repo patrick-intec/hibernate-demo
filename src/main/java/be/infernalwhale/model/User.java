@@ -1,16 +1,19 @@
 package be.infernalwhale.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "user_table")
 public class User {
     @Id
     @GeneratedValue
     private int id;
 
     private String username;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Message> messages;
 
     public int getId() {
         return id;
@@ -27,6 +30,15 @@ public class User {
 
     public User setUsername(String username) {
         this.username = username;
+        return this;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public User setMessages(List<Message> messages) {
+        this.messages = messages;
         return this;
     }
 

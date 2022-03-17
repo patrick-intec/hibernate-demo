@@ -95,5 +95,12 @@ public class Main {
 
         // Entity Associations (Entity Relations)
 
+
+        // Products <> Orders
+        // Users can place orders
+        // Users have addresses (multiple)
+        // Addresses can belong to multiple users (example: my house-mate lives at the same address, but has his/her own user)
+
+
     }
 }

@@ -10,4 +10,8 @@ public class EntityManagerProvider {
     public static EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+
+    public static void closeEMF() {
+        emf.close();
+    }
 }
