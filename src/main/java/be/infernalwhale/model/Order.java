@@ -1,6 +1,8 @@
 package be.infernalwhale.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -17,7 +19,8 @@ public class Order {
     private String order_delivery_address;
     @Column
     @NotNull
-    @Size(min = 1000, max = 9999)
+    @Min(1000)
+    @Max(9999)
     private Integer order_delivery_postalcode;
     // not empty >> not a null value
     @NotNull
@@ -141,5 +144,10 @@ public class Order {
                 ", is_send=" + is_send +
                 ", order_date=" + order_date +
                 '}';
+    }
+
+    @PrePersist
+    public void prepersist() {
+        System.out.println("Just testing something");
     }
 }
