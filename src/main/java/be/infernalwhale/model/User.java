@@ -11,6 +11,7 @@ public class User {
     private int id;
 
     private String username;
+    private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Message> messages;
@@ -30,6 +31,15 @@ public class User {
 
     public User setUsername(String username) {
         this.username = username;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User setPassword(String password) {
+        this.password = password;
         return this;
     }
 

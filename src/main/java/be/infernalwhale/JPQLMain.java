@@ -4,16 +4,10 @@ import be.infernalwhale.data.EntityManagerProvider;
 import be.infernalwhale.model.Message;
 import be.infernalwhale.model.User;
 import be.infernalwhale.model.UserDTO;
-import org.hibernate.Session;
-import org.hibernate.query.NativeQuery;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import java.util.ArrayList;
 import java.util.List;
 
 public class JPQLMain {

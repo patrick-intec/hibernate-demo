@@ -99,4 +99,16 @@ public class Message {
                 ", user=" + user +
                 '}';
     }
+
+    @PrePersist
+    @PreUpdate
+    public void stage1() {
+        System.out.println("Action to be taken before persist action: ");
+    }
+
+    @PostPersist
+    public void stage2() {
+        System.out.println("Action to be taken just after persist action");
+    }
+
 }

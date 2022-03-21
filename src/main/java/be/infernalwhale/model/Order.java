@@ -1,10 +1,12 @@
 package be.infernalwhale.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
-//@Entity
-//@Table(name = "order_table")
+@Entity
+@Table(name = "order_table")
 public class Order {
     @Id
     @GeneratedValue
@@ -13,7 +15,12 @@ public class Order {
     @Transient
     private String order_client;
     private String order_delivery_address;
-    private int order_delivery_postalcode;
+    @Column
+    @NotNull
+    @Size(min = 1000, max = 9999)
+    private Integer order_delivery_postalcode;
+    // not empty >> not a null value
+    @NotNull
     private String order_delivery_city;
     private boolean is_vat_free;
     private boolean is_send;
